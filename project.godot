@@ -8,10 +8,30 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "TotoTestScript",
+"language": "GDScript",
+"path": "res://addons/godot_uml/test_script.gd"
+}, {
+"base": "Object",
+"class": "UMLParser",
+"language": "GDScript",
+"path": "res://addons/godot_uml/parser.gd"
+} ]
+_global_script_class_icons={
+"TotoTestScript": "",
+"UMLParser": ""
+}
+
 [application]
 
 config/name="Godot_UML"
 config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/godot_uml/plugin.cfg" )
 
 [physics]
 

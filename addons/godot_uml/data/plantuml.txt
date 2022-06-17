@@ -1,0 +1,28 @@
+
+@startuml
+	
+	
+	class UMLParser {
+			
+			
+	}
+	
+	
+	
+	class plugin {
+			
+			
+	}
+	
+	
+	
+	class TotoTestScript {
+			
+			
+toto
+
+	}
+	
+	
+@enduml
+	
