@@ -8,25 +8,33 @@ func get_gd_scripts():
 	var gd_scripts = dir_content("res://", ".gd")
 	var format_string_plant_uml = """
 @startuml
-	{data}
+	{inheritance_data}
+	{class_data}
 @enduml
 	"""
 	
 	var class_data = ""
+	var inheritance_list = []
 
 	for path in gd_scripts:
-		class_data += parse_plant_uml(path)
+		class_data += parse_plant_uml(path, inheritance_list)
 		
+	var inheritance_list_string = PoolStringArray(inheritance_list).join("\n")
 		
-	var final_text = format_string_plant_uml.format({"data": class_data})
+	var final_text = format_string_plant_uml.format({
+		"inheritance_data": inheritance_list_string,
+		"class_data": class_data
+	})
 	
 	var file_save = File.new()
 	file_save.open("res://addons/godot_uml/data/plantuml.txt", File.WRITE)
 	file_save.store_string(final_text)
 	file_save.close()
+	
+	OS.execute("addons/godot_uml/run_plantuml.bat", [], false, [], true, true)
 		
 		
-func parse_plant_uml(gdscript_class_path : String):
+func parse_plant_uml(gdscript_class_path : String, inheritance_list : Array):
 	### Init parsing
 	var file_class : File = File.new()
 	var format_string_plant_uml_class = """
@@ -65,6 +73,9 @@ func parse_plant_uml(gdscript_class_path : String):
 	### Parse data to plant UML
 	if class_name_string == "":
 		class_name_string = gdscript_class_path.get_file().get_slice(".", 0)
+		
+	if class_name_inheritance_string != "":
+		inheritance_list.append(class_name_inheritance_string + " <|-- " + class_name_string)
 	
 	return format_string_plant_uml_class.format({
 		"class_name": class_name_string,

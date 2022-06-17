@@ -1,5 +1,8 @@
 
 @startuml
+	Object <|-- UMLParser
+EditorPlugin <|-- plugin
+Node <|-- TotoTestScript
 	
 	
 	class UMLParser {
