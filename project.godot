@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "EditorPlugin",
+"class": "GodotUML",
+"language": "GDScript",
+"path": "res://addons/godot_uml/plugin.gd"
+}, {
+"base": "Control",
+"class": "ParsingRequest",
+"language": "GDScript",
+"path": "res://addons/godot_uml/parsing_request.gd"
+}, {
 "base": "Node",
 "class": "TotoTestScript",
 "language": "GDScript",
@@ -20,6 +30,8 @@ _global_script_classes=[ {
 "path": "res://addons/godot_uml/parser.gd"
 } ]
 _global_script_class_icons={
+"GodotUML": "",
+"ParsingRequest": "",
 "TotoTestScript": "",
 "UMLParser": ""
 }

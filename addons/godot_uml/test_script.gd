@@ -6,3 +6,6 @@ class_name TotoTestScript
 
 var toto : String
 export(String) var toto2 = ""
+
+func testing_function():
+	pass

@@ -1,4 +1,4 @@
-# Godot-UML
+# GodotUML
 Parse godot project to PlantUML
 
 WIP 

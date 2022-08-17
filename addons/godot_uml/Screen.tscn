@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/godot_uml/data/plantuml.png" type="Texture" id=2]
+[ext_resource path="res://addons/godot_uml/parsing_request.gd" type="Script" id=3]
+
+[node name="ScreenPlugin" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -356.0
+margin_right = 356.0
+margin_bottom = 112.0
+
+[node name="Label" type="Label" parent="Control"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -7.0
+margin_right = 93.0
+margin_bottom = 7.0
+rect_pivot_offset = Vector2( 30, 14 )
+text = "PlantUML Path"
+
+[node name="LineEdit" type="LineEdit" parent="Control"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 104.0
+margin_top = -12.0
+margin_right = 429.0
+margin_bottom = 12.0
+
+[node name="SetPath" type="Button" parent="Control"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 447.0
+margin_top = -10.0
+margin_right = 551.0
+margin_bottom = 10.0
+text = "Set Path"
+
+[node name="GenerateUML" type="Button" parent="Control"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 564.0
+margin_top = -10.0
+margin_right = 668.0
+margin_bottom = 10.0
+text = "Generate UML"
+
+[node name="UMLDiagram" type="Control" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = 56.0
+margin_right = 1195.0
+margin_bottom = 746.0
+rect_scale = Vector2( 0.6, 0.6 )
+
+[node name="TextureRect" type="TextureRect" parent="Control/UMLDiagram"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -593.0
+margin_top = -129.0
+margin_right = 593.0
+margin_bottom = 129.0
+texture = ExtResource( 2 )
+
+[connection signal="pressed" from="Control/SetPath" to="." method="_on_set_plantuml_path"]
+[connection signal="pressed" from="Control/GenerateUML" to="." method="_on_parsing_request"]
